@@ -1,0 +1,138 @@
+#+BRAIN_PARENTS: 778cee38-4331-4a0b-93de-a1e1b6b86c7d
+
+#+TITLE: Project Euler
+#+PROPERTY: header-args :session *scheme-euler* :noweb yes :mkdirp yes
+https://projecteuler.net/
+
+* Natural planning model
+:PROPERTIES:
+:CREATED:  [2023-04-08 Sat 13:07]
+:ID:       b57e24dd-042e-48d7-9d40-b1f52d55a699
+:END:
+** 1 Defining purpose and principles
+:PROPERTIES:
+:CREATED:  [2023-04-08 Sat 13:07]
+:ID:       4064aebe-8419-4b79-a3e1-fbcf8e8e9bce
+:END:
+Purpose: This involves the feature list, anti-features, goals and other overview aspects of a project
+   - /why/ am I making this?
+   - Defining a clear and specific goal
+
+This a literate org file featuring my answers to the questions on Project Euler, as well detailing a method for collecting from and submitting to the project under my username.
+
+Why am I doing this?
+
+By working through the Project Euler problem sets I aim to improve both my mathematical and programming knowledge, especially LISPs (specifically the Scheme dialect).
+
+Principles:
+   - open source
+   - Free
+*** What is Project Euler?
+:PROPERTIES:
+:CREATED:  [2023-04-08 Sat 13:07]
+:ID:       539fc5b3-17e9-4484-bf37-744c4d22c6a2
+:END:
+** 2 Outcome visioning
+:PROPERTIES:
+:CREATED:  [2023-04-08 Sat 13:07]
+:ID:       ba984629-4464-49ba-b4a8-68fefda87769
+:END:
+You envision the outcome. This is the what. You get a clear picture in mind of what the final result should look like in reality.  It must be the best picture possible, with the project completed successfully. This way allows you to activate all the conscious and unconscious resources available to you—ideas, thoughts, patterns—.
+*** Features
+:PROPERTIES:
+:CREATED:  [2023-04-08 Sat 13:07]
+:ID:       b786e1ee-2b97-413b-ab57-19e609f2ef1f
+:END:
+** 3 Brainstorming
+:PROPERTIES:
+:CREATED:  [2023-04-08 Sat 13:07]
+:ID:       98681c1a-dda6-4c20-8f8e-5e5d9a9d60a0
+:END:
+You get ideas. Here comes the how.
+
+- Capture any ideas without judgement
+- Use other peoples ideas
+** 4 Organizing
+:PROPERTIES:
+:CREATED:  [2023-04-08 Sat 13:07]
+:ID:       135e0513-e66a-4510-9642-c3ab85d8ad86
+:END:
+You organize everything. Once you know why, what and how, you are able to identify the different components of the project and to define the sequence of activities to be undertaken as well as their priorities.
+** 5 Identifying next actions
+:PROPERTIES:
+:CREATED:  [2023-04-08 Sat 13:07]
+:ID:       83f4f641-9b3f-41ef-912d-a0e0733820d6
+:END:
+Finally, you allocate the needed resources to get the project moving. It is about deciding the next actions for each of the moving parts of the project.
+
+* Why Scheme?
+:PROPERTIES:
+:CREATED:  [2023-04-14 Fri 08:43]
+:ID:       8b68d904-623d-4264-9614-72b80b9808de
+:END:
+
+Setup testing:
+#+begin_src scheme
+(use-modules (srfi srfi-64))
+#+end_src
+
+* Problems
+:PROPERTIES:
+:CREATED:  [2023-04-08 Sat 14:17]
+:ID:       87c7a482-fa27-4a72-9112-a48da6fb845f
+:END:
+
+** 1. Multiples of 3 or 5
+:PROPERTIES:
+:CREATED:  [2023-04-08 Sat 14:18]
+:ID:       699ed3ab-6755-4bc4-b0e8-dde0e14b1a1d
+:END:
+
+#+begin_calc
+If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+
+Find the sum of all the multiples of 3 or 5 below 1000.
+#+end_calc
+
+This can be formalized as:
+
+($\N$)
+
+#+begin_src scheme :tangle 1.multiples-of-3-or-5.scm :results silent
+(define (sum-naturals-below multiples threshold)
+  "Find the sum of the natural numbers given by MULTIPLES below THRESHOLD."
+  '())
+#+end_src
+
+#+begin_src scheme
+(modulo 3 10)
+#+end_src
+
+#+RESULTS:
+: 3
+
+#+begin_src scheme :noweb-ref tests :results output
+(test-begin "sum-naturals")
+
+(test-equal 23 (sum-naturals-below [3 5] 10))
+
+(test-end "sum-naturals")
+#+end_src
+
+#+RESULTS:
+: %%%% Starting test sum-naturals  (Writing full log to "sum-naturals.log")
+: :69: FAIL
+: # of unexpected failures  1
+
+* Tests
+:PROPERTIES:
+:CREATED:  [2023-04-09 Sun 11:51]
+:ID:       16074db9-fa07-41e0-baa6-f46229dbe6a1
+:END:
+
+#+begin_src scheme :noweb yes :tangle project-euler-problems.scm :eval no
+(define-module (project-euler-tests)
+  #:use-module (srfi srfi-64)
+
+<<tests>>)
+#+end_src
