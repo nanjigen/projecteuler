@@ -1,0 +1,43 @@
+# Created 2023-04-14 Fri 12:27
+#+title: Project Euler
+#+author: Daniel Otto
+#+brain_parents: 778cee38-4331-4a0b-93de-a1e1b6b86c7d
+
+#+property: header-args :session *scheme-euler* :noweb yes :mkdirp yes
+https://projecteuler.net/
+
+* Natural planning model
+** 1 Defining purpose and principles
+Purpose: This involves the feature list, anti-features, goals and other overview aspects of a project
+- /why/ am I making this?
+- Defining a clear and specific goal
+
+This a literate org file featuring my answers to the questions on Project Euler, as well detailing a method for collecting from and submitting to the project under my username.
+
+Why am I doing this?
+
+By working through the Project Euler problem sets I aim to improve both my mathematical and programming knowledge, especially LISPs (specifically the Scheme dialect).
+
+Principles:
+- open source
+- Free
+*** What is Project Euler?
+
+*** Why Scheme?
+Setup testing:
+#+begin_src scheme
+(use-modules (srfi srfi-64))
+#+end_src
+
+** 2 Outcome visioning
+You envision the outcome. This is the what. You get a clear picture in mind of what the final result should look like in reality.  It must be the best picture possible, with the project completed successfully. This way allows you to activate all the conscious and unconscious resources available to you—ideas, thoughts, patterns—.
+*** Features
+** 3 Brainstorming
+You get ideas. Here comes the how.
+
+- Capture any ideas without judgement
+- Use other peoples ideas
+** 4 Organizing
+You organize everything. Once you know why, what and how, you are able to identify the different components of the project and to define the sequence of activities to be undertaken as well as their priorities.
+** 5 Identifying next actions
+Finally, you allocate the needed resources to get the project moving. It is about deciding the next actions for each of the moving parts of the project.

@@ -32,6 +32,18 @@ Principles:
 :CREATED:  [2023-04-08 Sat 13:07]
 :ID:       539fc5b3-17e9-4484-bf37-744c4d22c6a2
 :END:
+
+*** Why Scheme?
+:PROPERTIES:
+:CREATED:  [2023-04-14 Fri 08:43]
+:ID:       8b68d904-623d-4264-9614-72b80b9808de
+:END:
+
+Setup testing:
+#+begin_src scheme
+(use-modules (srfi srfi-64))
+#+end_src
+
 ** 2 Outcome visioning
 :PROPERTIES:
 :CREATED:  [2023-04-08 Sat 13:07]
@@ -65,16 +77,6 @@ You organize everything. Once you know why, what and how, you are able to identi
 :END:
 Finally, you allocate the needed resources to get the project moving. It is about deciding the next actions for each of the moving parts of the project.
 
-* Why Scheme?
-:PROPERTIES:
-:CREATED:  [2023-04-14 Fri 08:43]
-:ID:       8b68d904-623d-4264-9614-72b80b9808de
-:END:
-
-Setup testing:
-#+begin_src scheme
-(use-modules (srfi srfi-64))
-#+end_src
 
 * Problems
 :PROPERTIES:
@@ -124,7 +126,30 @@ This can be formalized as:
 : :69: FAIL
 : # of unexpected failures  1
 
-* Tests
+* Files
+:PROPERTIES:
+:CREATED:  [2023-04-14 Fri 12:23]
+:ID:       70c881cb-be42-4c73-8fdd-602c0b9d3e8e
+:END:
+** README.org
+:PROPERTIES:
+:CREATED:  [2023-04-14 Fri 12:23]
+:ID:       a02c766e-c55e-44b0-9576-4483fb7fc6f8
+:END:
+
+#+begin_src elisp :results silent
+(require 'org-transclusion)
+(with-temp-buffer
+  (org-mode)
+  (insert "
+\n#+transclude: [[file:projecteuler.org]]  :end \"Natural planning model\"
+#+transclude: [[id:b57e24dd-042e-48d7-9d40-b1f52d55a699][overview]]
+                ")
+  (org-transclusion-add-all)
+  (org-export-to-file 'org "README.org"))
+#+end_src
+
+** Tests
 :PROPERTIES:
 :CREATED:  [2023-04-09 Sun 11:51]
 :ID:       16074db9-fa07-41e0-baa6-f46229dbe6a1
